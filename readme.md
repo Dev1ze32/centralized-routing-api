@@ -237,3 +237,34 @@ The raw OpenAPI spec is also available at `/apispec_1.json`.
 Once this is confirmed working, the next step is parsing the BM/FG
 routing template and wiring up the lookup so that selecting BM or FG
 and entering an item code auto-fills the template from this API.
+
+### GET /api/production-lines
+Returns every production line and the activities that can be performed on each line.
+
+Request: `GET http://127.0.0.1:5000/api/production-lines` (no body)
+
+Response body:
+```json
+[
+  {
+    "production_line_code": "L01",
+    "production_line_name": "L01 - L1 COATINGS",
+    "activities": [
+      { "activity_name": "L01 MIXING", "sort_order": 1 },
+      { "activity_name": "L01 MILLING", "sort_order": 2 },
+      { "activity_name": "L01 TINTING", "sort_order": 3 },
+      { "activity_name": "L01 LETDOWN", "sort_order": 4 },
+      { "activity_name": "L01 FILLING", "sort_order": 5 },
+      { "activity_name": "L01 PACKING/PALLETIZ", "sort_order": 6 },
+      { "activity_name": "L01 LABELING/CODING", "sort_order": 7 }
+    ]
+  },
+  {
+    "production_line_code": "L02",
+    "production_line_name": "L02 - L2 COATINGS",
+    "activities": [
+      { "activity_name": "L02 MIXING", "sort_order": 1 },
+      { "activity_name": "L02 MILLING", "sort_order": 2 }
+    ]
+  }
+]

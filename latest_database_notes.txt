@@ -1,0 +1,67 @@
+ACU Routing Database (routing_db)
+Overview
+The routing_db is a PostgreSQL database designed to manage and track manufacturing routing templates for Pioneer Adhesives products. It stores product details, labor activities, and the master reference data needed to enforce valid production line configurations across Batch Mixing (BM) and Finished Goods (FG) phases.
+
+Schema Architecture
+The database is structured around 4 primary tables in the public schema. The architecture allows a single product to be routed through different production lines for its mixing and finishing phases, while ensuring UI dropdowns only display valid activities for the selected line.
+
+1. production_lines
+The master reference table containing all active physical production lines in the facility.
+
+production_line_code (Primary Key): The unique identifier (e.g., Line01, Line11, SIPS).
+
+production_line_name: The full descriptive name of the line.
+
+2. line_activities
+The master list of valid labor tasks/activities permitted on each production line. This table drives the front-end dropdown selections.
+
+id (Primary Key)
+
+production_line_code (Foreign Key -> production_lines): The line this activity belongs to.
+
+activity_name: The name of the task (e.g., MIXING, FILLING, PACKING/PALLETIZING).
+
+sort_order: Preserves the exact display sequence for UI dropdowns.
+
+Note: Activities are bound directly to the line, removing strict phase (BM/FG) constraints so the UI can flexibly show all line-specific tasks regardless of the tab the user is on.
+
+3. products
+The core table storing product-level metadata and their assigned routing lines.
+
+inventory_id (Primary Key): The unique item code (e.g., 1WDG5A6601).
+
+revision & revision_descr: Version control for the routing template.
+
+notes: General product notes.
+
+bm_production_line_code (Foreign Key -> production_lines): The line assigned for the Batch Mixing phase.
+
+fg_production_line_code (Foreign Key -> production_lines): The line assigned for the Finished Goods phase.
+
+(Includes companion text columns for the descriptive line names).
+
+4. activities
+The transactional table storing the actual step-by-step labor activities required to manufacture a specific product.
+
+id (Primary Key)
+
+inventory_id (Foreign Key -> products): Links the task to the specific product.
+
+activity_name: The task being performed (mapped from the master line_activities list).
+
+pax: Number of workers required for this task.
+
+machine: Boolean/Integer flag indicating if a machine is utilized.
+
+time_min: Expected duration of the task in minutes.
+
+sort_order: The sequential order of this step in the product's actual routing template.
+
+type, item_id, class, class_1, qty_required: Additional fields parsed from the original template mappings.
+
+Key Relationships
+1-to-Many: production_lines → line_activities (A line has many possible activities).
+
+1-to-Many: production_lines → products (A line can be assigned to multiple products for BM or FG).
+
+1-to-Many: products → activities (A product template requires a sequence of many activities).

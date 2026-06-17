@@ -1,0 +1,20 @@
+per line activities available
+
+Line01 – COATINGS: BM: Mixing, Milling, Letdown, Tinting · FG: Coding, Labeling, Box Preparation, Manual Transfer BM to Filling Tank, Filling, Capping, Packing/Palletizing
+Line02 – CYANO BOTTLE FILLING: FG only: Stickering, Coding, Filling, Nozzle & Capping, Cap Tightening, Plungering, Twist Tie, Packing/Palletizing
+Line03 – CYANO TUBE FILLING: FG only: Filling, Packing/Palletizing, Transfer to Subcon
+Line04A – ELASTO MIXING: BM: Mixing · FG: Coding, Box Preparation, Transfer BM to ARO Pump, Scooping, Filling, Plungering, Sealing, Capping, Packing/Palletizing
+Line04B – SEMI AUTO FILLING: same set as Line04A
+Line04C – AUTO FILLING: same set as Line04A
+Line05 – EPOXY CLAY: FG only: Cutting, Stickering, Packing/Palletizing
+Line06 – EPOXY LINE: BM: Mixing · FG: Coding, Labeling, Box Preparation, Transfer of BM to ARO Pump, Filling, Capping, Packing/Palletizing
+Line07 – EPOXY TUBE FILLING: BM: Mixing · FG: Pre Heat of BM, Filling, Packing/Palletizing, Transfer to Subcon
+Line08: no activities defined (only the "BLANK" placeholder)
+Line09 – EPS BLOCKS: BM: Beads Pre Expansion, Molding · FG: Cutting
+Line09A – EPS CUTTING: same set as Line09
+Line10 – CONTACT BOND: FG only: Coding, Labeling, Box Preparation, Filling, Capping, Packing/Palletizing
+Line11 – SILICONE FILLING LINE: FG only: Coding, Filling, Scooping, Plungering, Sealing, Stickering, Packing/Palletizing, Transfer to Subcon (the screenshot)
+Line12 – SPECIAL PRODUCTS, EPOXY BASED: BM: Mixing, Melting · FG: Coding, Labeling, Box Preparation, Manual Transfer BM to Filling Tank, Filling, Capping, Sealing, Plungering, Packing/Palletizing
+Line13 – SPECIAL PRODUCTS, WATER BASED: same set as Line12
+Line14 – SKIM COAT: BM: Mixing, Sieving · FG: Coding, Labeling, Box Preparation, Filling, Capping, Sealing, Packing/Palletizing
+SIPS – STRUCTURAL INSULATED PANEL: BM: Beads Pre Expansion, Molding (Block) · FG: Cutting (Laminate), Gluing, Panel Assembly
